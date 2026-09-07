@@ -1,26 +1,335 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------
+   Palette: warm paper (light) / warm ink (dark), one signal-orange brand.
+   All shadcn tokens kept, plus --brand for highlights.
+   ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.975 0.006 85);
+  --foreground: oklch(0.21 0.012 60);
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.21 0.012 60);
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.21 0.012 60);
+  --primary: oklch(0.22 0.012 60);
+  --primary-foreground: oklch(0.975 0.006 85);
+  --secondary: oklch(0.93 0.01 80);
+  --secondary-foreground: oklch(0.22 0.012 60);
+  --muted: oklch(0.94 0.008 85);
+  --muted-foreground: oklch(0.47 0.016 60);
+  --accent: oklch(0.935 0.012 80);
+  --accent-foreground: oklch(0.22 0.012 60);
+  --destructive: oklch(0.55 0.21 27);
+  --border: oklch(0.87 0.012 75);
+  --input: oklch(0.85 0.012 75);
+  --ring: oklch(0.66 0.2 40);
+  --brand: oklch(0.66 0.2 40);
+  --brand-strong: oklch(0.54 0.19 38);
+  --brand-foreground: oklch(0.99 0.005 85);
+  --success: oklch(0.6 0.15 150);
+  --grid-dot: oklch(0.21 0.012 60 / 9%);
+  --syn-key: oklch(0.3 0.03 60);
+  --syn-string: oklch(0.52 0.17 40);
+  --syn-number: oklch(0.5 0.13 150);
+  --syn-literal: oklch(0.5 0.12 260);
+  --syn-punct: oklch(0.6 0.012 60);
+  --chart-1: oklch(0.66 0.2 40);
+  --chart-2: oklch(0.47 0.016 60);
+  --chart-3: oklch(0.7 0.012 75);
+  --chart-4: oklch(0.36 0.012 60);
+  --chart-5: oklch(0.85 0.012 75);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.975 0.006 85);
+  --sidebar-foreground: oklch(0.21 0.012 60);
+  --sidebar-primary: oklch(0.22 0.012 60);
+  --sidebar-primary-foreground: oklch(0.975 0.006 85);
+  --sidebar-accent: oklch(0.935 0.012 80);
+  --sidebar-accent-foreground: oklch(0.22 0.012 60);
+  --sidebar-border: oklch(0.87 0.012 75);
+  --sidebar-ring: oklch(0.66 0.2 40);
+}
+
+.dark {
+  --background: oklch(0.165 0.008 60);
+  --foreground: oklch(0.93 0.008 85);
+  --card: oklch(0.2 0.009 60);
+  --card-foreground: oklch(0.93 0.008 85);
+  --popover: oklch(0.2 0.009 60);
+  --popover-foreground: oklch(0.93 0.008 85);
+  --primary: oklch(0.93 0.008 85);
+  --primary-foreground: oklch(0.18 0.01 60);
+  --secondary: oklch(0.26 0.01 60);
+  --secondary-foreground: oklch(0.93 0.008 85);
+  --muted: oklch(0.245 0.01 60);
+  --muted-foreground: oklch(0.7 0.012 75);
+  --accent: oklch(0.27 0.01 60);
+  --accent-foreground: oklch(0.93 0.008 85);
+  --destructive: oklch(0.7 0.19 25);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.18 42);
+  --brand: oklch(0.72 0.18 42);
+  --brand-strong: oklch(0.78 0.16 45);
+  --brand-foreground: oklch(0.16 0.01 60);
+  --success: oklch(0.72 0.15 150);
+  --grid-dot: oklch(1 0 0 / 8%);
+  --syn-key: oklch(0.9 0.02 80);
+  --syn-string: oklch(0.8 0.14 45);
+  --syn-number: oklch(0.8 0.13 150);
+  --syn-literal: oklch(0.78 0.1 260);
+  --syn-punct: oklch(0.6 0.012 75);
+  --chart-1: oklch(0.72 0.18 42);
+  --chart-2: oklch(0.7 0.012 75);
+  --chart-3: oklch(0.5 0.012 60);
+  --chart-4: oklch(0.85 0.008 85);
+  --chart-5: oklch(0.35 0.01 60);
+  --sidebar: oklch(0.2 0.009 60);
+  --sidebar-foreground: oklch(0.93 0.008 85);
+  --sidebar-primary: oklch(0.72 0.18 42);
+  --sidebar-primary-foreground: oklch(0.16 0.01 60);
+  --sidebar-accent: oklch(0.27 0.01 60);
+  --sidebar-accent-foreground: oklch(0.93 0.008 85);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.72 0.18 42);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-success: var(--success);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-sans: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-plex), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-display);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-rise: rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade: fade 0.6s ease-out both;
+  --animate-flash: flash 0.9s ease-out both;
+  --animate-pop: pop 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes flash {
+    0% {
+      box-shadow: inset 0 0 0 1px var(--brand), 0 0 0 4px color-mix(in oklch, var(--brand) 25%, transparent);
+    }
+    100% {
+      box-shadow: inset 0 0 0 1px transparent, 0 0 0 0 transparent;
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--brand) 30%, transparent);
+  }
+  textarea,
+  input,
+  select {
+    font: inherit;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* dotted engineering-grid texture */
+  .bg-grid {
+    background-image: radial-gradient(var(--grid-dot) 1px, transparent 1.2px);
+    background-size: 22px 22px;
+  }
+  .bg-grid-fade {
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  }
+  /* small uppercase monospace label */
+  .label-mono {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground;
+  }
+  .hairline {
+    @apply border-t border-border;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .stagger > * {
+    animation: var(--animate-rise);
+    animation-delay: calc(var(--i, 0) * 45ms);
+  }
+  /* code / data surfaces: thin scrollbars, inset feel */
+  .code-surface {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 25%, transparent) transparent;
+  }
+  .code-surface::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .code-surface::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--foreground) 20%, transparent);
+  }
+  .syn-key { color: var(--syn-key); font-weight: 500; }
+  .syn-string { color: var(--syn-string); }
+  .syn-number { color: var(--syn-number); }
+  .syn-literal { color: var(--syn-literal); font-style: italic; }
+  .syn-punct { color: var(--syn-punct); }
+  /* line numbers via CSS counters */
+  .code-lines { counter-reset: line; }
+  .code-lines > .code-line { counter-increment: line; display: flex; }
+  .code-lines > .code-line::before {
+    content: counter(line);
+    flex: 0 0 auto;
+    inline-size: 2.5em;
+    padding-inline-end: 1em;
+    text-align: end;
+    color: var(--syn-punct);
+    user-select: none;
+  }
+}
+
+/* Smooth <details> open/close (Chrome 131+, graceful elsewhere) */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.28s cubic-bezier(0.2, 0.7, 0.2, 1), content-visibility 0.28s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* Long-form article on tool pages */
+.prose-tool {
+  @apply text-[15px] leading-7 sm:text-base;
+}
+.prose-tool h2 {
+  @apply mt-12 mb-4 text-2xl;
+}
+.prose-tool h2:first-child {
+  @apply mt-0;
+}
+.prose-tool p {
+  @apply my-4 text-foreground/90;
+}
+.prose-tool ol,
+.prose-tool ul {
+  @apply my-4 space-y-2 ps-5;
+}
+.prose-tool ol {
+  @apply list-decimal marker:font-mono marker:text-muted-foreground;
+}
+.prose-tool ul {
+  @apply list-disc marker:text-brand;
+}
+.prose-tool code {
+  @apply rounded-sm bg-muted px-1.5 py-0.5 font-mono text-[0.88em] text-foreground;
+}
+.prose-tool a {
+  @apply font-medium text-brand-strong underline decoration-brand/40 underline-offset-4 transition-colors hover:decoration-brand;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

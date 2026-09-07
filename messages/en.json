@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "home": "Home",
+    "tools": "All tools",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "skipToContent": "Skip to content"
+  },
+  "home": {
+    "title": "Free online tools that run in your browser",
+    "subtitle": "Formatters, converters, generators and calculators. No sign-up, no uploads, nothing leaves your device.",
+    "searchPlaceholder": "Search tools, e.g. JSON, password, loan",
+    "noResults": "No tools match \"{query}\".",
+    "allTools": "All tools",
+    "popular": "Popular tools"
+  },
+  "tool": {
+    "howToUse": "How to use the {name}",
+    "features": "Features",
+    "faq": "Frequently asked questions",
+    "related": "Related tools",
+    "moreIn": "More in {category}",
+    "privacyNote": "Runs entirely in your browser. Your data is never uploaded.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "download": "Download",
+    "input": "Input",
+    "output": "Output",
+    "updatedOn": "Updated {date}",
+    "financeDisclaimer": "Estimates only, not financial advice. Confirm figures with your lender or a qualified advisor.",
+    "contextLinksLabel": "Related"
+  },
+  "category": {
+    "toolsCount": "{count, plural, one {# tool} other {# tools}}"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "categories": "Categories",
+    "company": "Site",
+    "legal": "Legal",
+    "madeWith": "All tools run client-side in your browser."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  }
+}

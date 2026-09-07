@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ToolKit – free online tools site
 
-## Getting Started
+Next.js 16 (App Router) + TypeScript + Tailwind 4 + shadcn/ui + next-intl. Every tool runs client-side; all pages are statically generated. Built to be monetized with Google AdSense.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # then edit
+pnpm dev                     # http://localhost:3000
+pnpm build && pnpm start     # production check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin, no trailing slash. Used in canonical/hreflang, sitemap, JSON-LD. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Shown on About/Contact/Privacy pages. |
+| `NEXT_PUBLIC_ADSENSE_CLIENT` | `ca-pub-…`. Empty = no ad scripts loaded (dev, preview, pre-approval). |
+| `NEXT_PUBLIC_ADSENSE_SLOT_*` | Optional manual ad unit ids for top / in-article / sidebar. Auto Ads work without them. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+- Tokens live in `src/app/globals.css` (shadcn names + `--brand`). Light = warm paper, dark = warm ink, one signal-orange brand color. Toggle via next-themes (`class` strategy).
+- Fonts: Bricolage Grotesque (display), IBM Plex Sans (body), JetBrains Mono (data), loaded with `next/font`.
+- shadcn/ui components in `src/components/ui` (radix-nova preset, RTL on). Add more with `npx shadcn@latest add <name>`.
+- Tool primitives in `src/components/tools/ui.tsx` wrap shadcn so every tool looks the same: `ToolPanel`, `ToolActions`, `Label`, `TextArea`, `NumberInput`, `SelectField`, `CheckboxField`, `SwitchField`, `SliderField`, `Segmented`, `Button`, `CopyButton`, `Stat`, `Chip`, `Hint`, `ErrorText`.
+- Also in `ui.tsx`: `CodeBlock` (JSON syntax highlighting + line numbers + flash on update), `useHotkey("mod+enter", fn)`, `KbdHint`, `locateJsonError` / `cleanJsonError` (line/col from any engine's JSON.parse message).
+- `ToolFrame` wraps every tool with window chrome (`~/tools/slug`, live "runs locally" status with tooltip). `CopyLinkButton` in the tool header.
+- Utilities: `.label-mono` (small uppercase mono label), `.bg-grid` (dot texture), `.stagger` (card reveal), `.code-surface` (thin scrollbars), `.syn-*` (syntax colors), `animate-flash` / `animate-pop` (result feedback). `<details>` open/close is animated via `::details-content`. Route changes fade in via `app/[locale]/template.tsx`.
+- Ctrl/Cmd+K opens the command palette (`CommandMenu`).
 
-To learn more about Next.js, take a look at the following resources:
+## Add a tool
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create `src/tools/<slug>/Tool.tsx` (`"use client"`, default export) using primitives from `src/components/tools/ui.tsx`.
+2. Create `src/tools/<slug>/index.ts` exporting a `ToolDefinition` (meta + `content.en` with intro, howTo, features, 5 FAQs). 350-600 words of real content per tool; thin pages fail AdSense review.
+3. Add it to the `tools` array in `src/tools/registry.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pages, sitemap, JSON-LD (WebApplication + FAQPage + BreadcrumbList), breadcrumbs and related tools are generated from the registry.
 
-## Deploy on Vercel
+## Add a language
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Add the locale to `locales` in `src/i18n/routing.ts`.
+2. Create `messages/<locale>.json` (copy `en.json`).
+3. Add `content.<locale>` to each tool definition (falls back to `en`).
+4. `localeDirection` in routing.ts handles RTL for `ar`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+URLs: default locale at `/`, others at `/<locale>/…`. hreflang tags are emitted for every configured locale.
+
+## Deploy (Vercel)
+
+1. Push to GitHub, import in Vercel, framework auto-detected.
+2. Set the env vars above in the Vercel project.
+3. Add the custom domain, then set `NEXT_PUBLIC_SITE_URL` to it and redeploy.
+4. Google Search Console: verify the domain, submit `/sitemap.xml`.
+
+## AdSense checklist
+
+- [ ] Custom domain live, 15+ tool pages indexed, About / Contact / Privacy / Terms present (done in code).
+- [ ] Apply at adsense.google.com with the domain.
+- [ ] Set `NEXT_PUBLIC_ADSENSE_CLIENT`; the `<meta name="google-adsense-account">` tag and loader script are rendered automatically.
+- [ ] Replace `public/ads.txt` with the line AdSense gives you.
+- [ ] In AdSense: Privacy & messaging, create the GDPR consent message (EEA/UK). It is served through the same loader tag, no extra code.
+- [ ] Turn on Auto Ads, dynamic anchor ads, and Offerwall. Optionally create 3 manual units and fill the `SLOT_*` vars.
+- [ ] After approval, check Core Web Vitals in Search Console; ad containers reserve height to keep CLS low.
+
+## Structure
+
+```
+src/app/[locale]/           layout, home, tools/[slug], category/[category], about, contact, privacy, terms
+src/app/sitemap.ts          from registry x locales
+src/app/robots.ts
+src/proxy.ts                next-intl locale routing
+src/i18n/                   routing, navigation, request config
+src/tools/                  registry, categories, types, one folder per tool
+src/components/ads/         AdSenseScript (loader), AdSlot (CLS-safe unit)
+src/components/seo/         JsonLd
+src/components/tools/       ui primitives, ToolCard, ToolSearch, ToolArticle, RelatedTools
+src/lib/site.ts             site + ads config from env
+src/lib/seo.ts              canonical / hreflang helpers
+messages/en.json            UI strings
+```

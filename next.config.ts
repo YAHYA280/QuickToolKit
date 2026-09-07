@@ -15,6 +15,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   serverExternalPackages: ["postgres"],
+  // Tailwind output is ~20 KB; inlining removes two render-blocking requests on first visit.
+  experimental: { inlineCss: true },
   reactStrictMode: true,
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {

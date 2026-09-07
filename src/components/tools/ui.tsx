@@ -451,7 +451,7 @@ export function KbdHint({ combo, className }: { combo: string; className?: strin
   return (
     <KbdGroup className={cn("ms-1.5 hidden sm:inline-flex", className)} aria-hidden>
       {keys.map((k, i) => (
-        <Kbd key={i} className="text-current opacity-80">
+        <Kbd key={i} className="text-current">
           {k}
         </Kbd>
       ))}

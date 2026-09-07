@@ -392,6 +392,7 @@
     border: 1px solid currentColor;
     border-radius: 0;
     background: transparent;
+    color: inherit;
     font-family: var(--font-mono);
     font-weight: 700;
   }

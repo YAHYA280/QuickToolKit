@@ -87,7 +87,7 @@ export default function WordCounterTool() {
       </ToolActions>
 
       <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-        <Stat label="Words" value={stats.words.toLocaleString()} className="border-brand/40 bg-brand/5" />
+        <Stat label="Words" value={stats.words.toLocaleString()} className="border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80" />
         <Stat label="Characters" value={stats.characters.toLocaleString()} />
         <Stat label="No spaces" value={stats.charactersNoSpaces.toLocaleString()} />
         <Stat label="Sentences" value={stats.sentences.toLocaleString()} />

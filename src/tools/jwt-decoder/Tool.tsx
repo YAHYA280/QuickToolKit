@@ -31,12 +31,12 @@ const CLAIMS: { key: string; label: string; time?: boolean }[] = [
 const BADGE: Record<Status, { label: string; className: string }> = {
   valid: { label: "Valid", className: "border-success/40 text-success" },
   expired: { label: "Expired", className: "border-destructive/40 text-destructive" },
-  "not-yet-valid": { label: "Not yet valid", className: "border-brand/40 text-brand-strong" },
+  "not-yet-valid": { label: "Not yet valid", className: "border-primary text-brand-strong" },
   "no-expiry": { label: "No expiry claim", className: "text-muted-foreground" },
 };
 
 const CODE_BLOCK =
-  "overflow-x-auto whitespace-pre-wrap break-all rounded-lg border border-border bg-muted/40 p-3 font-mono text-xs leading-relaxed";
+  "overflow-x-auto whitespace-pre-wrap break-all rounded-lg border border-border bg-muted p-3 font-mono text-xs leading-relaxed";
 
 function base64UrlDecode(segment: string): string {
   let s = segment.replace(/-/g, "+").replace(/_/g, "/");
@@ -176,7 +176,7 @@ export default function JwtDecoderTool() {
         </Button>
       </ToolActions>
 
-      <p className="mt-4 rounded-lg border border-border bg-muted/40 p-3 text-sm text-muted-foreground">
+      <p className="mt-4 rounded-lg border border-border bg-muted p-3 text-sm text-muted-foreground">
         This tool only decodes. The signature is <strong className="text-foreground">not verified</strong>, so a
         token that decodes cleanly may still be forged or tampered with. Decoding runs entirely in your browser and
         nothing is sent anywhere, but never paste production tokens into websites you do not trust.
@@ -211,7 +211,7 @@ export default function JwtDecoderTool() {
           <div className="mt-3 overflow-x-auto rounded-lg border border-border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-muted/40 hover:bg-muted/40">
+                <TableRow className="bg-muted hover:bg-muted">
                   <TableHead className="label-mono">Claim</TableHead>
                   <TableHead className="label-mono">Value</TableHead>
                   <TableHead className="label-mono">Meaning</TableHead>

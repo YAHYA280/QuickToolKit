@@ -30,12 +30,12 @@ export function ContactForm({ tools }: { tools: ToolOption[] }) {
     return (
       <div
         role="status"
-        className="animate-pop rounded-xl border border-success/40 bg-success/5 p-6"
+        className="animate-pop brut border-success p-6 shadow-[4px_4px_0_0_var(--success)]"
       >
         <div className="flex items-start gap-3">
           <CheckCircle2Icon className="mt-0.5 size-5 shrink-0 text-success" />
           <div>
-            <p className="font-display text-lg font-semibold">Message received</p>
+            <p className="font-display text-base uppercase tracking-wide">Message received</p>
             <p className="mt-1 text-sm text-muted-foreground">
               Thanks for writing. We read every message and usually reply within one to three business days.
             </p>
@@ -46,7 +46,7 @@ export function ContactForm({ tools }: { tools: ToolOption[] }) {
   }
 
   return (
-    <form action={action} className="rounded-xl border border-border bg-card p-5 sm:p-6" noValidate>
+    <form action={action} className="brut p-5 sm:p-6" noValidate>
       <input type="hidden" name="_t" value={renderedAt} />
       {/* honeypot: hidden from humans, filled by bots */}
       <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden>

@@ -43,7 +43,7 @@ export function ToolSearch({ tools, categories }: Props) {
       <div className="flex items-end justify-between gap-4">
         <div>
           <p className="label-mono">Index</p>
-          <h2 className="mt-1 text-2xl font-semibold sm:text-3xl">{t("allTools")}</h2>
+          <h2 className="mt-1 text-2xl sm:text-3xl">{t("allTools")}</h2>
         </div>
         <p className="hidden font-mono text-xs text-muted-foreground sm:block">
           {String(filtered.length).padStart(2, "0")} / {String(tools.length).padStart(2, "0")}
@@ -61,7 +61,7 @@ export function ToolSearch({ tools, categories }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={t("searchPlaceholder")}
-          className="h-11 bg-card ps-9 pe-10 text-base md:text-base"
+          className="h-11 bg-card ps-9 pe-10 text-base shadow-hard md:text-base"
           autoComplete="off"
         />
         {query && (
@@ -85,7 +85,7 @@ export function ToolSearch({ tools, categories }: Props) {
             ))}
           </div>
         ) : (
-          <p className="mt-8 rounded-lg border border-dashed p-8 text-center text-sm text-muted-foreground">
+          <p className="mt-8 border-2 border-dashed border-foreground p-8 text-center text-sm text-muted-foreground">
             {t("noResults", { query })}
           </p>
         )
@@ -96,14 +96,14 @@ export function ToolSearch({ tools, categories }: Props) {
             if (!list.length) return null;
             return (
               <section key={category.slug} aria-labelledby={`cat-${category.slug}`}>
-                <div className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
+                <div className="flex items-baseline justify-between gap-4 border-b-2 border-foreground pb-3">
                   <div>
-                    <h3 id={`cat-${category.slug}`} className="text-xl font-semibold">
+                    <h3 id={`cat-${category.slug}`} className="font-display text-lg uppercase tracking-wide">
                       {category.name}
                     </h3>
                     <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
                   </div>
-                  <span className="shrink-0 font-mono text-xs text-muted-foreground">{list.length} tools</span>
+                  <span className="label-mono-muted shrink-0">{list.length} tools</span>
                 </div>
                 <div className="stagger mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {list.map((tool, i) => (

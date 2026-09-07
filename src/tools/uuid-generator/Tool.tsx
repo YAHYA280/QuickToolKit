@@ -57,7 +57,7 @@ export default function UuidGeneratorTool() {
 
   return (
     <ToolPanel>
-      <div className="rounded-lg border border-brand/40 bg-brand/5 px-4 py-3">
+      <div className="rounded-lg border border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80 px-4 py-3">
         <p className="label-mono">Quick copy</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-3">
           <button

@@ -80,7 +80,7 @@ export function ToolArticle({
       <ol className="!list-none !ps-0 !space-y-3">
         {content.howTo.map((step, i) => (
           <li key={i} className="flex gap-4">
-            <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md border border-border bg-card font-mono text-[11px] text-muted-foreground">
+            <span className="mt-0.5 grid size-7 shrink-0 place-items-center bg-foreground font-mono text-[11px] font-bold text-background">
               {i + 1}
             </span>
             <span>{step}</span>
@@ -96,7 +96,7 @@ export function ToolArticle({
           <ul className="!list-none !ps-0 grid gap-x-8 gap-y-2 sm:grid-cols-2">
             {content.features.map((f, i) => (
               <li key={i} className="flex gap-3">
-                <CheckIcon className="mt-1.5 size-4 shrink-0 text-brand" />
+                <CheckIcon className="mt-1.5 size-4 shrink-0 text-primary" strokeWidth={3} />
                 <span>{f}</span>
               </li>
             ))}
@@ -107,14 +107,14 @@ export function ToolArticle({
       <h2 id="faq" className="scroll-mt-20">
         {t("faq")}
       </h2>
-      <div className="divide-y divide-border rounded-lg border border-border bg-card">
+      <div className="brut divide-y-2 divide-foreground">
         {content.faq.map((item, i) => (
-          <details key={i} className="group px-5">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium [&::-webkit-details-marker]:hidden">
-              <span>{item.question}</span>
-              <ChevronDownIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180" />
+          <details key={i} className="group">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold transition-colors hover:bg-highlight [&::-webkit-details-marker]:hidden">
+              <span className="ps-5">{item.question}</span>
+              <ChevronDownIcon className="me-5 size-5 shrink-0 transition-transform duration-200 group-open:rotate-180" strokeWidth={2.5} />
             </summary>
-            <p className="!mt-0 pb-5 text-muted-foreground">{linkify(item.answer, `faq-${i}`)}</p>
+            <p className="!mt-0 px-5 pb-5 text-muted-foreground">{linkify(item.answer, `faq-${i}`)}</p>
           </details>
         ))}
       </div>

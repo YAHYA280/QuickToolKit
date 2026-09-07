@@ -78,7 +78,7 @@ export default function LoanCalculatorTool() {
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Stat label="Monthly payment" value={money(payment, currency)} className="border-brand/40 bg-brand/5" />
+        <Stat label="Monthly payment" value={money(payment, currency)} className="border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80" />
         <Stat label="Total interest" value={money(Math.max(0, totalInterest), currency)} />
         <Stat label="Total paid" value={money(totalPaid, currency)} />
         <Stat label="Payments" value={totalMonths.toLocaleString()} />
@@ -110,7 +110,7 @@ export default function LoanCalculatorTool() {
           <div className="mt-3 overflow-x-auto rounded-lg border border-border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-muted/40 hover:bg-muted/40">
+                <TableRow className="bg-muted hover:bg-muted">
                   <TableHead className="label-mono">Month</TableHead>
                   <TableHead className="label-mono text-end">Payment</TableHead>
                   <TableHead className="label-mono text-end">Principal</TableHead>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
+import { Archivo_Black, Space_Mono, Work_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -12,20 +12,21 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "../globals.css";
 
-const bricolage = Bricolage_Grotesque({
+const display = Archivo_Black({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  weight: "400",
+  variable: "--font-display-face",
   display: "swap",
 });
-const plex = IBM_Plex_Sans({
+const body = Work_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-plex",
+  variable: "--font-body",
   display: "swap",
 });
-const jetbrains = JetBrains_Mono({
+const mono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  weight: ["400", "700"],
+  variable: "--font-mono-face",
   display: "swap",
 });
 
@@ -49,8 +50,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f6f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#1b1916" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f3ec" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
 };
 
@@ -73,7 +74,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={localeDirection[locale] ?? "ltr"}
-      className={`${bricolage.variable} ${plex.variable} ${jetbrains.variable} h-full`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full`}
       suppressHydrationWarning
     >
       <head>

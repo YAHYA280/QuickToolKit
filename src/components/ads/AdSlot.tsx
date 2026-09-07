@@ -46,7 +46,7 @@ export function AdSlot({ placement, className = "" }: AdSlotProps) {
     return (
       <div
         aria-hidden
-        className={`label-mono flex items-center justify-center rounded-lg border border-dashed border-border bg-muted/40 ${className}`}
+        className={cn("label-mono-muted flex items-center justify-center border-2 border-dashed border-foreground/40", className)}
         style={{ minHeight: minHeight[placement] }}
       >
         ad · {placement}

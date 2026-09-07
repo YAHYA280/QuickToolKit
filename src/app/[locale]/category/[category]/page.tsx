@@ -71,10 +71,10 @@ export default async function CategoryPage({ params }: { params: Params }) {
       <JsonLd data={jsonLd} />
       <Breadcrumbs items={[{ name: category.name }]} />
 
-      <header className="mt-8 grid gap-6 border-b border-border pb-8 md:grid-cols-[1fr_auto] md:items-end">
+      <header className="mt-8 grid gap-6 border-b-2 border-foreground pb-8 md:grid-cols-[1fr_auto] md:items-end">
         <div className="max-w-2xl">
           <p className="label-mono">{t("toolsCount", { count: list.length })}</p>
-          <h1 className="mt-2 text-4xl font-semibold sm:text-5xl">{category.name}</h1>
+          <h1 className="mt-2 text-3xl sm:text-5xl">{category.name}</h1>
           <p className="mt-3 text-lg leading-7 text-muted-foreground">{category.description}</p>
         </div>
         <nav aria-label="Other categories" className="flex flex-wrap gap-1.5 md:justify-end">
@@ -84,10 +84,10 @@ export default async function CategoryPage({ params }: { params: Params }) {
               href={`/category/${c.slug}`}
               aria-current={c.slug === slug ? "page" : undefined}
               className={cn(
-                "rounded-md border px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider transition-colors",
+                "border-2 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
                 c.slug === slug
-                  ? "border-foreground bg-foreground text-background"
-                  : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground",
+                  ? "border-foreground bg-foreground text-background shadow-hard-sm"
+                  : "border-foreground bg-card hover:bg-highlight",
               )}
             >
               {c.name}

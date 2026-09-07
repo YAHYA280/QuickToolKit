@@ -91,7 +91,7 @@ function highlight(text: string, matches: Match[]): ReactNode[] {
     if (m.text.length === 0 || m.index < cursor) return;
     if (m.index > cursor) nodes.push(<span key={`t${i}`}>{text.slice(cursor, m.index)}</span>);
     nodes.push(
-      <mark key={`m${i}`} className="rounded-sm bg-brand/25 px-0.5 text-foreground">
+      <mark key={`m${i}`} className="rounded-sm bg-highlight text-highlight-foreground px-0.5 text-foreground">
         {m.text}
       </mark>,
     );
@@ -129,7 +129,7 @@ export default function RegexTesterTool() {
   return (
     <ToolPanel>
       <Label htmlFor="regex-pattern">Pattern</Label>
-      <div className="flex h-9 items-center rounded-lg border border-input bg-card transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 dark:bg-input/20">
+      <div className="flex h-9 items-center rounded-lg border-2 border-foreground bg-card transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 dark:bg-input/20">
         <span className="ps-3 font-mono text-sm text-muted-foreground">/</span>
         <TextInput
           id="regex-pattern"
@@ -176,7 +176,7 @@ export default function RegexTesterTool() {
         <Stat
           label="Matches"
           value={`${matches.length.toLocaleString()}${truncated ? "+" : ""}`}
-          className="border-brand/40 bg-brand/5"
+          className="border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80"
         />
         <Stat label="Capture groups" value={String(groupCount)} />
         <Stat label="Flags" value={flags || "none"} />
@@ -184,7 +184,7 @@ export default function RegexTesterTool() {
 
       <div className="mt-6">
         <p className="label-mono">Highlighted preview</p>
-        <pre className="mt-2 max-h-64 overflow-auto rounded-lg border border-border bg-card p-3 font-mono text-sm leading-relaxed break-words whitespace-pre-wrap">
+        <pre className="mt-2 max-h-64 overflow-auto brut-flat p-3 font-mono text-sm leading-relaxed break-words whitespace-pre-wrap">
           {text ? highlight(text, matches) : <span className="text-muted-foreground">Nothing to preview</span>}
         </pre>
       </div>
@@ -195,7 +195,7 @@ export default function RegexTesterTool() {
           <div className="mt-2 max-h-80 overflow-auto rounded-lg border border-border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-muted/40 hover:bg-muted/40">
+                <TableRow className="bg-muted hover:bg-muted">
                   <TableHead className="label-mono">#</TableHead>
                   <TableHead className="label-mono">Index</TableHead>
                   <TableHead className="label-mono">Match</TableHead>
@@ -247,7 +247,7 @@ export default function RegexTesterTool() {
         </Button>
       </ToolActions>
 
-      <details className="mt-6 rounded-lg border border-border bg-card">
+      <details className="mt-6 brut-flat">
         <summary className="cursor-pointer px-3 py-2 text-sm font-medium select-none">Quick reference</summary>
         <div className="border-t border-border">
           <Table>

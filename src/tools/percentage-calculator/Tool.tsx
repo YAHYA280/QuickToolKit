@@ -19,7 +19,7 @@ const OPERATIONS: { value: Op; label: string }[] = [
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="rounded-lg border border-border bg-card p-4">
+    <section className="brut-flat p-4">
       <h3 className="label-mono">{title}</h3>
       <div className="mt-3 grid gap-3 sm:grid-cols-3">{children}</div>
     </section>

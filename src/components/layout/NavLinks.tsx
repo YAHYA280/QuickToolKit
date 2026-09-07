@@ -17,8 +17,8 @@ export function NavLinks({ categories, className }: { categories: Category[]; cl
             href={href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "rounded-md px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
-              active && "bg-accent text-foreground",
+              "px-2.5 py-1.5 text-sm font-semibold transition-colors hover:bg-highlight hover:text-highlight-foreground",
+              active && "bg-foreground text-background hover:bg-foreground hover:text-background",
             )}
           >
             {c.name}

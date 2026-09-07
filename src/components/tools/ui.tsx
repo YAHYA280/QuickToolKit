@@ -64,7 +64,7 @@ export function TextArea({
       spellCheck={false}
       {...props}
       className={cn(
-        "code-surface resize-y bg-card font-mono text-sm leading-relaxed dark:bg-input/20",
+        "code-surface resize-y bg-card font-mono text-sm leading-relaxed",
         autoGrow ? "field-sizing-content max-h-[60vh]" : "field-sizing-fixed",
         flashKey !== undefined && flashKey !== "" && "animate-flash",
         className,
@@ -79,7 +79,7 @@ export function TextInput({ className, mono = true, ...props }: ComponentProps<"
     <input
       {...props}
       className={cn(
-        "h-9 w-full min-w-0 rounded-lg border border-input bg-card px-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/20",
+        "h-9 w-full min-w-0 border-2 border-foreground bg-card px-3 text-sm outline-none transition-[box-shadow,border-color] placeholder:text-muted-foreground focus-visible:border-primary focus-visible:shadow-hard-blue",
         mono && "font-mono",
         className,
       )}
@@ -111,7 +111,7 @@ export function NumberInput({
   return (
     <div
       className={cn(
-        "flex h-9 items-center rounded-lg border border-input bg-card transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 dark:bg-input/20",
+        "flex h-9 items-center border-2 border-foreground bg-card transition-[box-shadow,border-color] focus-within:border-primary focus-within:shadow-hard-blue",
         className,
       )}
     >
@@ -214,9 +214,9 @@ export function Stat({
   className?: string;
 }) {
   return (
-    <div className={cn("min-w-0 rounded-lg border border-border bg-card px-4 py-3", className)}>
+    <div className={cn("min-w-0 brut-flat px-4 py-3", className)}>
       <p className="label-mono">{label}</p>
-      <p key={value} className={cn("animate-pop mt-1.5 truncate text-lg font-medium tabular-nums", mono && "font-mono")}>
+      <p key={value} className={cn("animate-pop mt-1.5 truncate text-lg font-bold tabular-nums", mono && "font-mono")}>
         {value}
       </p>
     </div>
@@ -257,7 +257,7 @@ export function SelectField({
 }) {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger id={id} size={size} className={cn("w-full bg-card dark:bg-input/20", className)} aria-label={ariaLabel}>
+      <SelectTrigger id={id} size={size} className={cn("w-full bg-card", className)} aria-label={ariaLabel}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
@@ -364,7 +364,7 @@ export function Segmented<T extends string>({
   "aria-label"?: string;
 }) {
   return (
-    <div role="group" aria-label={ariaLabel} className={cn("inline-flex rounded-lg border border-border bg-muted/50 p-0.5", className)}>
+    <div role="group" aria-label={ariaLabel} className={cn("inline-flex border-2 border-foreground bg-card p-0.5", className)}>
       {options.map((o) => (
         <button
           key={o.value}
@@ -372,8 +372,8 @@ export function Segmented<T extends string>({
           aria-pressed={value === o.value}
           onClick={() => onChange(o.value)}
           className={cn(
-            "rounded-md px-3 py-1 text-sm font-medium transition-colors",
-            value === o.value ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
+            "px-3 py-1 text-sm font-bold transition-colors",
+            value === o.value ? "bg-foreground text-background" : "text-muted-foreground hover:bg-highlight hover:text-highlight-foreground",
           )}
         >
           {o.label}
@@ -386,7 +386,7 @@ export function Segmented<T extends string>({
 /** Small inline code/value chip. */
 export function Chip({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <span className={cn("inline-flex items-center rounded-md border border-border bg-card px-2 py-0.5 font-mono text-xs", className)}>
+    <span className={cn("inline-flex items-center border-2 border-foreground bg-card px-2 py-0.5 font-mono text-xs font-bold", className)}>
       {children}
     </span>
   );
@@ -451,7 +451,7 @@ export function KbdHint({ combo, className }: { combo: string; className?: strin
   return (
     <KbdGroup className={cn("ms-1.5 hidden sm:inline-flex", className)} aria-hidden>
       {keys.map((k, i) => (
-        <Kbd key={i} className="bg-background/40 text-current opacity-70">
+        <Kbd key={i} className="text-current opacity-80">
           {k}
         </Kbd>
       ))}
@@ -550,7 +550,7 @@ export function CodeBlock({
       id={id}
       tabIndex={0}
       className={cn(
-        "code-surface overflow-auto rounded-lg border border-input bg-card p-3 font-mono text-[13px] leading-relaxed outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/20",
+        "code-surface overflow-auto border-2 border-foreground bg-card p-3 font-mono text-[13px] leading-relaxed outline-none focus-visible:border-primary focus-visible:shadow-hard-blue",
         lineNumbers && "code-lines",
         code && flashKey !== undefined && "animate-flash",
         className,

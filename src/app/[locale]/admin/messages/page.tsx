@@ -42,23 +42,23 @@ export default async function AdminMessagesPage({
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="label-mono">Admin</p>
-          <h1 className="mt-2 flex items-center gap-3 text-3xl font-semibold">
+          <h1 className="mt-2 flex items-center gap-3 text-3xl">
             <InboxIcon className="size-6 text-brand" /> Messages
             {unread > 0 && (
-              <Badge className="bg-brand text-brand-foreground font-mono">{unread} unread</Badge>
+              <Badge className="bg-highlight text-highlight-foreground">{unread} unread</Badge>
             )}
           </h1>
         </div>
         <div className="flex items-center gap-2">
           <Link
             href="/admin/messages"
-            className={cn("rounded-md px-2.5 py-1.5 text-sm", !unreadOnly ? "bg-accent" : "text-muted-foreground hover:bg-accent")}
+            className={cn("border-2 border-foreground px-2.5 py-1 font-mono text-[11px] font-bold uppercase", !unreadOnly ? "bg-foreground text-background" : "bg-card hover:bg-highlight")}
           >
             All
           </Link>
           <Link
             href="/admin/messages?filter=unread"
-            className={cn("rounded-md px-2.5 py-1.5 text-sm", unreadOnly ? "bg-accent" : "text-muted-foreground hover:bg-accent")}
+            className={cn("border-2 border-foreground px-2.5 py-1 font-mono text-[11px] font-bold uppercase", unreadOnly ? "bg-foreground text-background" : "bg-card hover:bg-highlight")}
           >
             Unread
           </Link>
@@ -91,8 +91,8 @@ export default async function AdminMessagesPage({
             <li
               key={m.id}
               className={cn(
-                "rounded-xl border bg-card p-5 transition-colors",
-                isUnread ? "border-brand/50 shadow-[0_0_0_3px_color-mix(in_oklch,var(--brand)_12%,transparent)]" : "border-border",
+                "border-2 bg-card p-5 transition-colors",
+                isUnread ? "border-primary shadow-hard-blue" : "border-foreground",
               )}
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
@@ -102,7 +102,7 @@ export default async function AdminMessagesPage({
                     <a href={`mailto:${m.email}`} className="font-mono text-xs text-muted-foreground hover:text-foreground">
                       {m.email}
                     </a>
-                    {isUnread && <Badge variant="outline" className="border-brand/40 text-brand-strong font-mono text-[10px] uppercase">New</Badge>}
+                    {isUnread && <Badge className="bg-highlight text-highlight-foreground">New</Badge>}
                     {tool && (
                       <Link href={`/tools/${tool.slug}`} className="font-mono text-[11px] text-muted-foreground hover:text-foreground">
                         #{tool.slug}

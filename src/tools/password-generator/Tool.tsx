@@ -287,7 +287,7 @@ export default function PasswordGeneratorTool() {
           {visible.map((r, i) => (
             <li
               key={`${i}-${r}`}
-              className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-2.5 font-mono text-sm break-all"
+              className="flex items-center justify-between gap-3 brut-flat px-4 py-2.5 font-mono text-sm break-all"
             >
               <code>{r}</code>
               <CopyButton text={r} size="sm" variant="ghost" className="shrink-0 font-sans" />

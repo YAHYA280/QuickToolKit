@@ -19,21 +19,22 @@ export function ToolCard({ tool, index, category, className, style }: Props) {
       href={`/tools/${tool.slug}`}
       style={style}
       className={cn(
-        "group relative flex flex-col rounded-lg border border-border bg-card p-5 transition-colors duration-200",
-        "hover:border-brand/70 focus-visible:border-brand focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
+        "group brut relative flex flex-col p-5 transition-[transform,box-shadow,background-color] duration-100",
+        "hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-highlight hover:shadow-hard-sm",
+        "focus-visible:bg-highlight focus-visible:outline-none",
         className,
       )}
     >
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] tracking-wider text-muted-foreground">
+        <span className="font-mono text-[11px] font-bold tracking-wider">
           {index !== undefined ? String(index + 1).padStart(2, "0") : tool.icon}
         </span>
-        <ArrowUpRightIcon className="size-4 text-muted-foreground transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand" />
+        <ArrowUpRightIcon className="size-5" strokeWidth={2.5} />
       </div>
-      <span className="mt-7 font-display text-lg font-semibold leading-tight tracking-tight">{tool.name}</span>
-      <span className="mt-1.5 text-sm leading-6 text-muted-foreground">{tool.shortDescription}</span>
+      <span className="mt-7 font-display text-[15px] uppercase leading-tight tracking-wide">{tool.name}</span>
+      <span className="mt-2 text-sm leading-6 text-muted-foreground group-hover:text-highlight-foreground">{tool.shortDescription}</span>
       {category && (
-        <span className="mt-5 inline-flex w-fit rounded-sm bg-muted px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="mt-5 inline-flex w-fit border-2 border-foreground bg-card px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em]">
           {category}
         </span>
       )}

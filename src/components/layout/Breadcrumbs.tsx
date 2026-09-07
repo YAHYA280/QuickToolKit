@@ -11,7 +11,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const t = useTranslations("breadcrumbs");
   const all: Crumb[] = [{ name: t("home"), href: "/" }, ...items];
   return (
-    <nav aria-label="Breadcrumb" className="font-mono text-xs text-muted-foreground">
+    <nav aria-label="Breadcrumb" className="font-mono text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
       <ol className="flex flex-wrap items-center gap-1">
         {all.map((item, i) => (
           <li key={i} className="flex items-center gap-1">

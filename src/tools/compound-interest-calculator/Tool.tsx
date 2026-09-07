@@ -116,7 +116,7 @@ export default function CompoundInterestCalculatorTool() {
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Stat label="Final balance" value={money(finalBalance, currency)} className="border-brand/40 bg-brand/5" />
+        <Stat label="Final balance" value={money(finalBalance, currency)} className="border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80" />
         <Stat label="Total contributions" value={money(totalContributions, currency)} />
         <Stat label="Interest earned" value={money(totalInterest, currency)} />
         <Stat label="Effective annual rate" value={`${apy.toFixed(2)}%`} />
@@ -146,7 +146,7 @@ export default function CompoundInterestCalculatorTool() {
           <div className="mt-3 overflow-x-auto rounded-lg border border-border">
             <Table>
               <TableHeader>
-                <TableRow className="bg-muted/40 hover:bg-muted/40">
+                <TableRow className="bg-muted hover:bg-muted">
                   <TableHead className="label-mono">Year</TableHead>
                   <TableHead className="label-mono text-end">Contributions</TableHead>
                   <TableHead className="label-mono text-end">Interest</TableHead>

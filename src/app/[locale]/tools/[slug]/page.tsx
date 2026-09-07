@@ -125,12 +125,12 @@ export default async function ToolPage({ params }: { params: Params }) {
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
         <div className="min-w-0">
-          <header className="flex flex-wrap items-start justify-between gap-4">
-            <div className="max-w-3xl">
+          <header className="flex items-start justify-between gap-4">
+            <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 {category && <p className="label-mono">{category.name}</p>}
                 {tool.popular && (
-                  <Badge variant="outline" className="border-brand/40 font-mono text-[10px] uppercase tracking-wider text-brand-strong">
+                  <Badge className="bg-highlight text-highlight-foreground">
                     Popular
                   </Badge>
                 )}
@@ -138,23 +138,25 @@ export default async function ToolPage({ params }: { params: Params }) {
               <div className="mt-2 flex items-center gap-4">
                 <span
                   aria-hidden
-                  className="hidden size-12 shrink-0 place-items-center rounded-lg border border-border bg-card font-mono text-sm text-brand-strong sm:grid"
+                  className="brut hidden size-12 shrink-0 place-items-center bg-highlight font-mono text-sm font-bold text-highlight-foreground sm:grid"
                 >
                   {tool.icon}
                 </span>
-                <h1 className="text-4xl font-semibold sm:text-5xl">{tool.name}</h1>
+                <h1 className="text-3xl sm:text-5xl">{tool.name}</h1>
               </div>
               <p className="mt-3 text-lg leading-7 text-muted-foreground">{tool.shortDescription}</p>
-              <p className="mt-2 font-mono text-[11px] text-muted-foreground">
+              <p className="label-mono-muted mt-3">
                 {t("updatedOn", { date: formatDate(dates.updated, locale) })}
               </p>
               {tool.category === "finance" && (
-                <p className="mt-3 rounded-md border border-brand/30 bg-brand/5 px-3 py-2 text-sm text-foreground/80">
+                <p className="mt-4 max-w-xl border-2 border-foreground bg-highlight px-3 py-2 text-sm font-medium text-highlight-foreground">
                   {t("financeDisclaimer")}
                 </p>
               )}
             </div>
-            <CopyLinkButton />
+            <div className="shrink-0">
+              <CopyLinkButton />
+            </div>
           </header>
 
           <AdSlot placement="top" className="mt-8" />
@@ -173,17 +175,17 @@ export default async function ToolPage({ params }: { params: Params }) {
         <aside className="hidden lg:block">
           <div className="sticky top-20 space-y-6">
             {siblings.length > 0 && category && (
-              <nav aria-label={t("moreIn", { category: category.name })} className="rounded-lg border border-border bg-card">
-                <p className="label-mono border-b border-border px-4 py-2.5">{t("moreIn", { category: category.name })}</p>
-                <ul className="divide-y divide-border">
+              <nav aria-label={t("moreIn", { category: category.name })} className="brut">
+                <p className="border-b-2 border-foreground bg-foreground px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-background">{t("moreIn", { category: category.name })}</p>
+                <ul className="divide-y-2 divide-foreground">
                   {siblings.slice(0, 6).map((s) => (
                     <li key={s.slug}>
                       <Link
                         href={`/tools/${s.slug}`}
-                        className="group flex items-center justify-between gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-accent"
+                        className="group flex items-center justify-between gap-3 px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-highlight"
                       >
                         <span>{s.name}</span>
-                        <ArrowUpRightIcon className="size-3.5 text-muted-foreground transition-colors group-hover:text-brand" />
+                        <ArrowUpRightIcon className="size-4" strokeWidth={2.5} />
                       </Link>
                     </li>
                   ))}

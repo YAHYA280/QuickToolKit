@@ -87,7 +87,7 @@ export default function HashGeneratorTool() {
           return (
             <div
               key={row.name}
-              className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-4 py-3"
+              className="flex items-center justify-between gap-3 brut-flat px-4 py-3"
             >
               <div className="min-w-0 flex-1">
                 <p className="label-mono">

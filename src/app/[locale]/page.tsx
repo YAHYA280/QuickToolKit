@@ -74,32 +74,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         ]}
       />
 
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="bg-grid bg-grid-fade pointer-events-none absolute inset-0" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pt-16 pb-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-24 lg:pb-20">
+      <section className="relative overflow-hidden border-b-2 border-foreground bg-highlight text-highlight-foreground">
+        <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden />
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pt-14 pb-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-20 lg:pb-20">
           <div className="animate-fade">
             <p className="label-mono">Free · client-side · no account</p>
-            <h1 className="mt-4 text-[2.6rem] leading-[1.02] font-semibold sm:text-6xl lg:text-[4.25rem]">
+            <h1 className="mt-5 text-[2.5rem] leading-[0.95] sm:text-6xl lg:text-[4.5rem]">
               Tools that run
               <br />
-              in the tab,{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">not the cloud</span>
-                <span
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-1 z-0 h-3 -rotate-1 bg-brand/30 sm:h-4"
-                />
-              </span>
-              .
+              in the tab.
+              <br />
+              <span className="inline-block bg-foreground px-2 text-background">Not the cloud.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">{t("subtitle")}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button asChild size="lg" className="h-10 px-4">
+            <p className="mt-6 max-w-xl text-lg leading-8">{t("subtitle")}</p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button asChild size="lg" className="h-11 px-5 text-[15px]">
                 <Link href="/#tools">
-                  Browse all {tools.length} tools <ArrowRightIcon data-icon="inline-end" />
+                  Browse all {tools.length} tools <ArrowRightIcon data-icon="inline-end" strokeWidth={2.5} />
                 </Link>
               </Button>
-              <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider">
                 or press
                 <KbdGroup>
                   <Kbd>Ctrl</Kbd>
@@ -109,42 +103,38 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <aside
-            className="animate-rise rounded-xl border border-border bg-card shadow-[0_1px_0_0_var(--border),0_20px_50px_-30px_rgb(0_0_0/0.35)]"
-            aria-label="Popular tools"
-          >
-            <div className="flex h-9 items-center justify-between border-b border-border bg-muted/40 px-4">
-              <span className="font-mono text-[11px] text-muted-foreground">~/popular</span>
-              <span className="flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground">
-                <span className="size-1.5 rounded-full bg-success" /> runs locally
+          <aside className="animate-rise brut shadow-hard-lg" aria-label="Popular tools">
+            <div className="flex h-10 items-center justify-between bg-foreground px-4 text-background">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em]">~/popular</span>
+              <span className="flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em]">
+                <span className="size-2 bg-success" /> runs locally
               </span>
             </div>
-            <ul className="divide-y divide-border">
+            <ul className="divide-y-2 divide-foreground">
               {popular.map((tool, i) => (
                 <li key={tool.slug}>
                   <Link
                     href={`/tools/${tool.slug}`}
-                    className="group flex items-center gap-4 px-4 py-3 transition-colors hover:bg-accent"
+                    className="group flex items-center gap-4 px-4 py-3 transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
-                    <span className="w-6 font-mono text-[11px] text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="flex-1">
-                      <span className="block text-sm font-medium">{tool.name}</span>
-                      <span className="block truncate text-xs text-muted-foreground">{tool.shortDescription}</span>
+                    <span className="w-6 font-mono text-[11px] font-bold">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-[13px] uppercase tracking-wide">{tool.name}</span>
+                      <span className="block truncate text-xs text-muted-foreground group-hover:text-primary-foreground/80">{tool.shortDescription}</span>
                     </span>
-                    <ArrowUpRightIcon className="size-4 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand" />
+                    <ArrowUpRightIcon className="size-4" strokeWidth={2.5} />
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="grid grid-cols-3 divide-x divide-border border-t border-border font-mono text-[11px]">
+            <div className="grid grid-cols-3 divide-x-2 divide-foreground border-t-2 border-foreground font-mono text-[11px] font-bold uppercase tracking-wider">
               {[
                 [String(tools.length), "tools"],
                 ["0", "uploads"],
                 ["0", "accounts"],
               ].map(([n, label]) => (
                 <div key={label} className="px-4 py-2.5">
-                  <span className="text-foreground">{n}</span>{" "}
-                  <span className="text-muted-foreground">{label}</span>
+                  <span className="text-primary">{n}</span> <span>{label}</span>
                 </div>
               ))}
             </div>

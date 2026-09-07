@@ -181,7 +181,7 @@ export default function ColorConverterTool() {
               aria-label="Pick a color"
               value={color ? hex6 : "#000000"}
               onChange={(e) => setInput(e.target.value)}
-              className="size-9 shrink-0 cursor-pointer rounded-lg border border-input bg-card p-1"
+              className="size-9 shrink-0 cursor-pointer rounded-lg border-2 border-foreground bg-card p-1"
             />
           </div>
           <ErrorText>{error}</ErrorText>
@@ -215,7 +215,7 @@ export default function ColorConverterTool() {
               {outputs.map((o) => (
                 <div
                   key={o.label}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 py-2"
+                  className="flex items-center justify-between gap-3 brut-flat px-3 py-2"
                 >
                   <span className="label-mono w-20 shrink-0">{o.label}</span>
                   <span className="min-w-0 flex-1 break-all font-mono text-sm">{o.value}</span>
@@ -232,7 +232,7 @@ export default function ColorConverterTool() {
           <p className="label-mono">Contrast (WCAG 2, normal text)</p>
           <div className="mt-2 grid gap-3 sm:grid-cols-2">
             {contrasts.map((c) => (
-              <div key={c.name} className="flex items-center gap-3 rounded-lg border border-border bg-card p-3">
+              <div key={c.name} className="flex items-center gap-3 brut-flat p-3">
                 <div
                   className="flex h-16 w-24 shrink-0 items-center justify-center rounded-md border border-border text-lg font-semibold"
                   style={{ backgroundColor: c.bg, color: hex6 }}

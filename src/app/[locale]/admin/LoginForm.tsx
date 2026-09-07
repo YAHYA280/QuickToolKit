@@ -11,7 +11,7 @@ import { login, type LoginState } from "./actions";
 export function LoginForm() {
   const [state, action, pending] = useActionState<LoginState, FormData>(login, {});
   return (
-    <form action={action} className="rounded-xl border border-border bg-card p-6">
+    <form action={action} className="brut p-6">
       <Label htmlFor="admin-password" className="mb-1.5">
         Password
       </Label>

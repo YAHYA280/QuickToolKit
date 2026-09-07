@@ -22,13 +22,13 @@ pnpm build && pnpm start     # production check
 
 ## Design system
 
-- Tokens live in `src/app/globals.css` (shadcn names + `--brand`). Light = warm paper, dark = warm ink, one signal-orange brand color. Toggle via next-themes (`class` strategy).
-- Fonts: Bricolage Grotesque (display), IBM Plex Sans (body), JetBrains Mono (data), loaded with `next/font`.
+- Direction: Brutalist Utility. Tokens in `src/app/globals.css` (shadcn names + `--brand` blue for actions/text, `--highlight` yellow for surfaces). Light = off-white #F4F3EC with ink #0A0A0A lines; dark = inverted. Zero radius, 2px borders, hard offset shadows (`shadow-hard`, `.brut`). Toggle via next-themes (`class` strategy).
+- Fonts: Archivo Black (display, uppercase), Work Sans (body), Space Mono (data), loaded with `next/font`.
 - shadcn/ui components in `src/components/ui` (radix-nova preset, RTL on). Add more with `npx shadcn@latest add <name>`.
 - Tool primitives in `src/components/tools/ui.tsx` wrap shadcn so every tool looks the same: `ToolPanel`, `ToolActions`, `Label`, `TextArea`, `NumberInput`, `SelectField`, `CheckboxField`, `SwitchField`, `SliderField`, `Segmented`, `Button`, `CopyButton`, `Stat`, `Chip`, `Hint`, `ErrorText`.
 - Also in `ui.tsx`: `CodeBlock` (JSON syntax highlighting + line numbers + flash on update), `useHotkey("mod+enter", fn)`, `KbdHint`, `locateJsonError` / `cleanJsonError` (line/col from any engine's JSON.parse message).
 - `ToolFrame` wraps every tool with window chrome (`~/tools/slug`, live "runs locally" status with tooltip). `CopyLinkButton` in the tool header.
-- Utilities: `.label-mono` (small uppercase mono label), `.bg-grid` (dot texture), `.stagger` (card reveal), `.code-surface` (thin scrollbars), `.syn-*` (syntax colors), `animate-flash` / `animate-pop` (result feedback). `<details>` open/close is animated via `::details-content`. Route changes fade in via `app/[locale]/template.tsx`.
+- Utilities: `.label-mono` / `.label-mono-muted` (small uppercase mono label), `.brut` / `.brut-sm` / `.brut-flat` (bordered box with hard shadow), `.bg-grid` (graph-paper lines), `.stagger` (card reveal), `.code-surface`, `.syn-*` (syntax colors), `animate-flash` / `animate-pop`. shadcn primitives are restyled globally via `[data-slot]` rules in globals.css, so the files in `src/components/ui` stay stock. `<details>` open/close is animated via `::details-content`. Route changes fade in via `app/[locale]/template.tsx`.
 - Ctrl/Cmd+K opens the command palette (`CommandMenu`).
 
 ## Contact form + admin inbox

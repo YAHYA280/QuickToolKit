@@ -21,17 +21,17 @@ export function Header() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur-md supports-backdrop-filter:bg-background/70">
+    <header className="sticky top-0 z-40 border-b-2 border-foreground bg-card">
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-2 focus:top-2 focus:z-50 focus:rounded-md focus:bg-primary focus:px-3 focus:py-1.5 focus:text-sm focus:text-primary-foreground"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-2 focus:top-2 focus:z-50 focus:border-2 focus:border-foreground focus:bg-highlight focus:px-3 focus:py-1.5 focus:text-sm focus:font-bold"
       >
         {t("skipToContent")}
       </a>
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
         <Logo />
         <NavLinks categories={categories} className="ms-4 hidden md:flex" />
-        <div className="ms-auto flex items-center gap-1.5">
+        <div className="ms-auto flex items-center gap-2">
           <CommandMenu tools={summaries} categories={categories} />
           <ThemeToggle />
           <MobileNav

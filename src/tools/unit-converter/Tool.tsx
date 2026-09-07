@@ -196,7 +196,7 @@ export default function UnitConverterTool() {
       </div>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <Stat label="Result" value={`${fmt(result)} ${to}`} className="border-brand/40 bg-brand/5" />
+        <Stat label="Result" value={`${fmt(result)} ${to}`} className="border-primary bg-primary text-primary-foreground [&_.label-mono]:text-primary-foreground/80" />
         <Stat label="Conversion factor" value={`1 ${from} = ${fmt(unitFactor)} ${to}`} />
       </div>
 
@@ -210,7 +210,7 @@ export default function UnitConverterTool() {
         <div className="mt-3 overflow-x-auto rounded-lg border border-border">
           <Table>
             <TableHeader>
-              <TableRow className="bg-muted/40 hover:bg-muted/40">
+              <TableRow className="bg-muted hover:bg-muted">
                 <TableHead className="label-mono">Unit</TableHead>
                 <TableHead className="label-mono">Symbol</TableHead>
                 <TableHead className="label-mono text-end">Value</TableHead>
@@ -218,7 +218,7 @@ export default function UnitConverterTool() {
             </TableHeader>
             <TableBody className="text-[13px]">
               {category.units.map((u) => (
-                <TableRow key={u.id} className={u.id === to ? "bg-brand/10 hover:bg-brand/10" : undefined}>
+                <TableRow key={u.id} className={u.id === to ? "bg-highlight/60 hover:bg-highlight/60" : undefined}>
                   <TableCell>{u.name}</TableCell>
                   <TableCell className="font-mono text-muted-foreground">{u.id}</TableCell>
                   <TableCell className="text-end font-mono tabular-nums">

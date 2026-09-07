@@ -14,10 +14,16 @@ import { unitConverter } from "./unit-converter";
 import { loanCalculator } from "./loan-calculator";
 import { compoundInterestCalculator } from "./compound-interest-calculator";
 import { percentageCalculator } from "./percentage-calculator";
+import { qrCodeGenerator } from "./qr-code-generator";
+import { unixTimestampConverter } from "./unix-timestamp-converter";
+import { imageCompressor } from "./image-compressor";
+import { imageResizer } from "./image-resizer";
+import { textDiff } from "./text-diff";
 
 export const tools: ToolDefinition[] = [
   // developer
   jsonFormatter,
+  unixTimestampConverter,
   base64Tool,
   urlEncoder,
   jwtDecoder,
@@ -26,11 +32,16 @@ export const tools: ToolDefinition[] = [
   regexTester,
   // text
   wordCounter,
+  textDiff,
   caseConverter,
   passwordGenerator,
   // converters
   colorConverter,
   unitConverter,
+  // image
+  imageCompressor,
+  imageResizer,
+  qrCodeGenerator,
   // finance
   loanCalculator,
   compoundInterestCalculator,

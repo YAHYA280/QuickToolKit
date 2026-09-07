@@ -27,6 +27,11 @@ export const toolDates: Record<string, ToolDates> = {
   "loan-calculator": { published: "2026-09-07", updated: "2026-09-07" },
   "compound-interest-calculator": { published: "2026-09-07", updated: "2026-09-07" },
   "percentage-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "qr-code-generator": { published: "2026-09-07", updated: "2026-09-07" },
+  "unix-timestamp-converter": { published: "2026-09-07", updated: "2026-09-07" },
+  "image-compressor": { published: "2026-09-07", updated: "2026-09-07" },
+  "image-resizer": { published: "2026-09-07", updated: "2026-09-07" },
+  "text-diff": { published: "2026-09-07", updated: "2026-09-07" },
 };
 
 /** Dates for a tool, falling back to the site launch date for unknown slugs. */

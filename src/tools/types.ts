@@ -1,4 +1,4 @@
-export type CategorySlug = "developer" | "text" | "finance" | "converters";
+export type CategorySlug = "developer" | "text" | "finance" | "converters" | "image";
 
 export interface Category {
   slug: CategorySlug;

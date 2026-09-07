@@ -19,4 +19,9 @@ export const toolAliases: Record<string, string[]> = {
   "loan-calculator": ["loan calculator", "loan payment", "amortization schedule"],
   "compound-interest-calculator": ["compound interest", "compound interest calculator"],
   "percentage-calculator": ["percentage change", "percentage calculator", "percentage increase"],
+  "qr-code-generator": ["QR code", "QR code generator"],
+  "unix-timestamp-converter": ["Unix timestamp", "epoch time", "timestamp converter"],
+  "image-compressor": ["compress images", "image compressor", "image compression"],
+  "image-resizer": ["resize images", "image resizer"],
+  "text-diff": ["diff checker", "text diff", "compare two texts"],
 };

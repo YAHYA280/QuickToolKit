@@ -23,4 +23,9 @@ export const toolLoaders: Record<string, ComponentType> = {
   "loan-calculator": dynamic(() => import("./loan-calculator/Tool")),
   "compound-interest-calculator": dynamic(() => import("./compound-interest-calculator/Tool")),
   "percentage-calculator": dynamic(() => import("./percentage-calculator/Tool")),
+  "qr-code-generator": dynamic(() => import("./qr-code-generator/Tool")),
+  "unix-timestamp-converter": dynamic(() => import("./unix-timestamp-converter/Tool")),
+  "image-compressor": dynamic(() => import("./image-compressor/Tool")),
+  "image-resizer": dynamic(() => import("./image-resizer/Tool")),
+  "text-diff": dynamic(() => import("./text-diff/Tool")),
 };

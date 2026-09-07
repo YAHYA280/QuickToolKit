@@ -49,6 +49,18 @@ export const categories: Category[] = [
     ],
     icon: "⇄",
   },
+  {
+    slug: "image",
+    name: "Image tools",
+    title: "Image Tools Online: Compress, Resize, QR Codes",
+    description:
+      "Free image tools that run in your browser: compress JPG and PNG, resize images to exact pixels, and generate QR codes. No upload, no watermark.",
+    intro: [
+      "Image tools that never upload your files. Compression and resizing use the browser's own canvas and encoder, so a photo goes from your disk to a smaller file without touching a server. That matters for screenshots with private data, product photos before launch, and anything you would not email to a stranger.",
+      "The QR code generator draws codes for links, Wi-Fi, text and contact cards, with size, margin and error-correction controls, and exports PNG or SVG for print. Every tool shows the before and after numbers so you can see exactly what changed.",
+    ],
+    icon: "img",
+  },
 ];
 
 export function getCategory(slug: string): Category | undefined {

@@ -21,10 +21,10 @@ export function Header() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-foreground bg-card">
+    <header className="sticky top-0 z-40 border-b-2 border-border bg-card">
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-2 focus:top-2 focus:z-50 focus:border-2 focus:border-foreground focus:bg-highlight focus:px-3 focus:py-1.5 focus:text-sm focus:font-bold"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-2 focus:top-2 focus:z-50 focus:border-2 focus:border-border focus:bg-highlight focus:px-3 focus:py-1.5 focus:text-sm focus:font-bold"
       >
         {t("skipToContent")}
       </a>

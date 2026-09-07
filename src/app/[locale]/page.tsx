@@ -74,7 +74,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         ]}
       />
 
-      <section className="relative overflow-hidden border-b-2 border-foreground bg-highlight text-highlight-foreground">
+      <section className="relative overflow-hidden border-b-2 border-border bg-highlight text-highlight-foreground">
         <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pt-14 pb-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-20 lg:pb-20">
           <div className="animate-fade">
@@ -84,9 +84,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <br />
               in the tab.
               <br />
-              <span className="inline-block bg-foreground px-2 text-background">Not the cloud.</span>
+              <span className="ink-block inline-block px-2">Not the cloud.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8">{t("subtitle")}</p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-foreground/90">{t("subtitle")}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button asChild size="lg" className="h-11 px-5 text-[15px]">
                 <Link href="/#tools">
@@ -104,13 +104,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <aside className="animate-rise brut shadow-hard-lg" aria-label="Popular tools">
-            <div className="flex h-10 items-center justify-between bg-foreground px-4 text-background">
+            <div className="flex h-10 items-center justify-between ink-block px-4">
               <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em]">~/popular</span>
               <span className="flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em]">
                 <span className="size-2 bg-success" /> runs locally
               </span>
             </div>
-            <ul className="divide-y-2 divide-foreground">
+            <ul className="divide-y-2 divide-border">
               {popular.map((tool, i) => (
                 <li key={tool.slug}>
                   <Link
@@ -127,7 +127,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 </li>
               ))}
             </ul>
-            <div className="grid grid-cols-3 divide-x-2 divide-foreground border-t-2 border-foreground font-mono text-[11px] font-bold uppercase tracking-wider">
+            <div className="grid grid-cols-3 divide-x-2 divide-border border-t-2 border-border font-mono text-[11px] font-bold uppercase tracking-wider">
               {[
                 [String(tools.length), "tools"],
                 ["0", "uploads"],

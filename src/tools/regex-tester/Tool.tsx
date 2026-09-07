@@ -129,7 +129,7 @@ export default function RegexTesterTool() {
   return (
     <ToolPanel>
       <Label htmlFor="regex-pattern">Pattern</Label>
-      <div className="flex h-9 items-center rounded-lg border-2 border-foreground bg-card transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 dark:bg-input/20">
+      <div className="flex h-9 items-center rounded-lg border-2 border-border bg-card transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50 dark:bg-input/20">
         <span className="ps-3 font-mono text-sm text-muted-foreground">/</span>
         <TextInput
           id="regex-pattern"

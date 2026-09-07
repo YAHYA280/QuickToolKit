@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
       <JsonLd data={jsonLd} />
       <Breadcrumbs items={[{ name: category.name }]} />
 
-      <header className="mt-8 grid gap-6 border-b-2 border-foreground pb-8 md:grid-cols-[1fr_auto] md:items-end">
+      <header className="mt-8 grid gap-6 border-b-2 border-border pb-8 md:grid-cols-[1fr_auto] md:items-end">
         <div className="max-w-2xl">
           <p className="label-mono">{t("toolsCount", { count: list.length })}</p>
           <h1 className="mt-2 text-3xl sm:text-5xl">{category.name}</h1>
@@ -86,8 +86,8 @@ export default async function CategoryPage({ params }: { params: Params }) {
               className={cn(
                 "border-2 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
                 c.slug === slug
-                  ? "border-foreground bg-foreground text-background shadow-hard-sm"
-                  : "border-foreground bg-card hover:bg-highlight",
+                  ? "border-border ink-block shadow-hard-sm"
+                  : "border-border bg-card hover:bg-highlight",
               )}
             >
               {c.name}

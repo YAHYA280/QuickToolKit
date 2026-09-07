@@ -181,7 +181,7 @@ export default function ColorConverterTool() {
               aria-label="Pick a color"
               value={color ? hex6 : "#000000"}
               onChange={(e) => setInput(e.target.value)}
-              className="size-9 shrink-0 cursor-pointer rounded-lg border-2 border-foreground bg-card p-1"
+              className="size-9 shrink-0 cursor-pointer rounded-lg border-2 border-border bg-card p-1"
             />
           </div>
           <ErrorText>{error}</ErrorText>

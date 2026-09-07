@@ -34,7 +34,7 @@ export function ToolCard({ tool, index, category, className, style }: Props) {
       <span className="mt-7 font-display text-[15px] uppercase leading-tight tracking-wide">{tool.name}</span>
       <span className="mt-2 text-sm leading-6 text-muted-foreground group-hover:text-highlight-foreground">{tool.shortDescription}</span>
       {category && (
-        <span className="mt-5 inline-flex w-fit border-2 border-foreground bg-card px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em]">
+        <span className="mt-5 inline-flex w-fit border-2 border-border bg-card px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em]">
           {category}
         </span>
       )}

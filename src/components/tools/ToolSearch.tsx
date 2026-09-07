@@ -85,7 +85,7 @@ export function ToolSearch({ tools, categories }: Props) {
             ))}
           </div>
         ) : (
-          <p className="mt-8 border-2 border-dashed border-foreground p-8 text-center text-sm text-muted-foreground">
+          <p className="mt-8 border-2 border-dashed border-border p-8 text-center text-sm text-muted-foreground">
             {t("noResults", { query })}
           </p>
         )
@@ -96,7 +96,7 @@ export function ToolSearch({ tools, categories }: Props) {
             if (!list.length) return null;
             return (
               <section key={category.slug} aria-labelledby={`cat-${category.slug}`}>
-                <div className="flex items-baseline justify-between gap-4 border-b-2 border-foreground pb-3">
+                <div className="flex items-baseline justify-between gap-4 border-b-2 border-border pb-3">
                   <div>
                     <h3 id={`cat-${category.slug}`} className="font-display text-lg uppercase tracking-wide">
                       {category.name}

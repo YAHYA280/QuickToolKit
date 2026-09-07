@@ -52,13 +52,13 @@ export default async function AdminMessagesPage({
         <div className="flex items-center gap-2">
           <Link
             href="/admin/messages"
-            className={cn("border-2 border-foreground px-2.5 py-1 font-mono text-[11px] font-bold uppercase", !unreadOnly ? "bg-foreground text-background" : "bg-card hover:bg-highlight")}
+            className={cn("border-2 border-border px-2.5 py-1 font-mono text-[11px] font-bold uppercase", !unreadOnly ? "ink-block" : "bg-card hover:bg-highlight")}
           >
             All
           </Link>
           <Link
             href="/admin/messages?filter=unread"
-            className={cn("border-2 border-foreground px-2.5 py-1 font-mono text-[11px] font-bold uppercase", unreadOnly ? "bg-foreground text-background" : "bg-card hover:bg-highlight")}
+            className={cn("border-2 border-border px-2.5 py-1 font-mono text-[11px] font-bold uppercase", unreadOnly ? "ink-block" : "bg-card hover:bg-highlight")}
           >
             Unread
           </Link>
@@ -92,7 +92,7 @@ export default async function AdminMessagesPage({
               key={m.id}
               className={cn(
                 "border-2 bg-card p-5 transition-colors",
-                isUnread ? "border-primary shadow-hard-blue" : "border-foreground",
+                isUnread ? "border-primary shadow-hard-blue" : "border-border",
               )}
             >
               <div className="flex flex-wrap items-start justify-between gap-3">

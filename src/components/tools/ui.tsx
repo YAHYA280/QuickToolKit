@@ -79,7 +79,7 @@ export function TextInput({ className, mono = true, ...props }: ComponentProps<"
     <input
       {...props}
       className={cn(
-        "h-9 w-full min-w-0 border-2 border-foreground bg-card px-3 text-sm outline-none transition-[box-shadow,border-color] placeholder:text-muted-foreground focus-visible:border-primary focus-visible:shadow-hard-blue",
+        "h-9 w-full min-w-0 border-2 border-border bg-card px-3 text-sm outline-none transition-[box-shadow,border-color] placeholder:text-muted-foreground focus-visible:border-primary focus-visible:shadow-hard-blue",
         mono && "font-mono",
         className,
       )}
@@ -111,7 +111,7 @@ export function NumberInput({
   return (
     <div
       className={cn(
-        "flex h-9 items-center border-2 border-foreground bg-card transition-[box-shadow,border-color] focus-within:border-primary focus-within:shadow-hard-blue",
+        "flex h-9 items-center border-2 border-border bg-card transition-[box-shadow,border-color] focus-within:border-primary focus-within:shadow-hard-blue",
         className,
       )}
     >
@@ -364,7 +364,7 @@ export function Segmented<T extends string>({
   "aria-label"?: string;
 }) {
   return (
-    <div role="group" aria-label={ariaLabel} className={cn("inline-flex border-2 border-foreground bg-card p-0.5", className)}>
+    <div role="group" aria-label={ariaLabel} className={cn("inline-flex border-2 border-border bg-card p-0.5", className)}>
       {options.map((o) => (
         <button
           key={o.value}
@@ -373,7 +373,7 @@ export function Segmented<T extends string>({
           onClick={() => onChange(o.value)}
           className={cn(
             "px-3 py-1 text-sm font-bold transition-colors",
-            value === o.value ? "bg-foreground text-background" : "text-muted-foreground hover:bg-highlight hover:text-highlight-foreground",
+            value === o.value ? "ink-block" : "text-muted-foreground hover:bg-highlight hover:text-highlight-foreground",
           )}
         >
           {o.label}
@@ -386,7 +386,7 @@ export function Segmented<T extends string>({
 /** Small inline code/value chip. */
 export function Chip({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <span className={cn("inline-flex items-center border-2 border-foreground bg-card px-2 py-0.5 font-mono text-xs font-bold", className)}>
+    <span className={cn("inline-flex items-center border-2 border-border bg-card px-2 py-0.5 font-mono text-xs font-bold", className)}>
       {children}
     </span>
   );
@@ -550,7 +550,7 @@ export function CodeBlock({
       id={id}
       tabIndex={0}
       className={cn(
-        "code-surface overflow-auto border-2 border-foreground bg-card p-3 font-mono text-[13px] leading-relaxed outline-none focus-visible:border-primary focus-visible:shadow-hard-blue",
+        "code-surface overflow-auto border-2 border-border bg-card p-3 font-mono text-[13px] leading-relaxed outline-none focus-visible:border-primary focus-visible:shadow-hard-blue",
         lineNumbers && "code-lines",
         code && flashKey !== undefined && "animate-flash",
         className,

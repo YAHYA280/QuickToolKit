@@ -149,7 +149,7 @@ export default async function ToolPage({ params }: { params: Params }) {
                 {t("updatedOn", { date: formatDate(dates.updated, locale) })}
               </p>
               {tool.category === "finance" && (
-                <p className="mt-4 max-w-xl border-2 border-foreground bg-highlight px-3 py-2 text-sm font-medium text-highlight-foreground">
+                <p className="mt-4 max-w-xl border-2 border-border bg-highlight px-3 py-2 text-sm font-medium text-highlight-foreground">
                   {t("financeDisclaimer")}
                 </p>
               )}
@@ -176,8 +176,8 @@ export default async function ToolPage({ params }: { params: Params }) {
           <div className="sticky top-20 space-y-6">
             {siblings.length > 0 && category && (
               <nav aria-label={t("moreIn", { category: category.name })} className="brut">
-                <p className="border-b-2 border-foreground bg-foreground px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-background">{t("moreIn", { category: category.name })}</p>
-                <ul className="divide-y-2 divide-foreground">
+                <p className="border-b-2 border-border ink-block px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em]">{t("moreIn", { category: category.name })}</p>
+                <ul className="divide-y-2 divide-border">
                   {siblings.slice(0, 6).map((s) => (
                     <li key={s.slug}>
                       <Link

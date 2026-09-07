@@ -80,7 +80,7 @@ export function ToolArticle({
       <ol className="!list-none !ps-0 !space-y-3">
         {content.howTo.map((step, i) => (
           <li key={i} className="flex gap-4">
-            <span className="mt-0.5 grid size-7 shrink-0 place-items-center bg-foreground font-mono text-[11px] font-bold text-background">
+            <span className="mt-0.5 grid size-7 shrink-0 place-items-center ink-block font-mono text-[11px] font-bold">
               {i + 1}
             </span>
             <span>{step}</span>
@@ -107,7 +107,7 @@ export function ToolArticle({
       <h2 id="faq" className="scroll-mt-20">
         {t("faq")}
       </h2>
-      <div className="brut divide-y-2 divide-foreground">
+      <div className="brut divide-y-2 divide-border">
         {content.faq.map((item, i) => (
           <details key={i} className="group">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold transition-colors hover:bg-highlight [&::-webkit-details-marker]:hidden">

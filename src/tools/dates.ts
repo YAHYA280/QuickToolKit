@@ -32,6 +32,19 @@ export const toolDates: Record<string, ToolDates> = {
   "image-compressor": { published: "2026-09-07", updated: "2026-09-07" },
   "image-resizer": { published: "2026-09-07", updated: "2026-09-07" },
   "text-diff": { published: "2026-09-07", updated: "2026-09-07" },
+  "mortgage-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "emi-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "credit-card-payoff-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "salary-to-hourly-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "tip-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "discount-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "cron-expression-generator": { published: "2026-09-07", updated: "2026-09-07" },
+  "chmod-calculator": { published: "2026-09-07", updated: "2026-09-07" },
+  "csv-to-json": { published: "2026-09-07", updated: "2026-09-07" },
+  "lorem-ipsum-generator": { published: "2026-09-07", updated: "2026-09-07" },
+  "markdown-editor": { published: "2026-09-07", updated: "2026-09-07" },
+  "html-entity-encoder": { published: "2026-09-07", updated: "2026-09-07" },
+  "slug-generator": { published: "2026-09-07", updated: "2026-09-07" },
 };
 
 /** Dates for a tool, falling back to the site launch date for unknown slugs. */

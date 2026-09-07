@@ -41,7 +41,8 @@ pnpm build && pnpm start     # production check
 
 1. Create `src/tools/<slug>/Tool.tsx` (`"use client"`, default export) using primitives from `src/components/tools/ui.tsx`.
 2. Create `src/tools/<slug>/index.ts` exporting a `ToolDefinition` (meta + `content.en` with intro, howTo, features, 5 FAQs). 350-600 words of real content per tool; thin pages fail AdSense review.
-3. Add it to the `tools` array in `src/tools/registry.ts`.
+3. Add it to the `tools` array in `src/tools/registry.ts`, `src/tools/loaders.ts` (dynamic import), `src/tools/dates.ts` and optionally `src/tools/aliases.ts`.
+4. Run `pnpm check:tools`. It enforces title/description lengths, FAQ count and answer length, related slugs, dates, loader and registry wiring. The build should not ship while it fails.
 
 Pages, sitemap, JSON-LD (WebApplication + FAQPage + BreadcrumbList), breadcrumbs and related tools are generated from the registry.
 

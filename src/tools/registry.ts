@@ -19,6 +19,19 @@ import { unixTimestampConverter } from "./unix-timestamp-converter";
 import { imageCompressor } from "./image-compressor";
 import { imageResizer } from "./image-resizer";
 import { textDiff } from "./text-diff";
+import { mortgageCalculator } from "./mortgage-calculator";
+import { emiCalculator } from "./emi-calculator";
+import { creditCardPayoffCalculator } from "./credit-card-payoff-calculator";
+import { salaryToHourlyCalculator } from "./salary-to-hourly-calculator";
+import { tipCalculator } from "./tip-calculator";
+import { discountCalculator } from "./discount-calculator";
+import { cronExpressionGenerator } from "./cron-expression-generator";
+import { chmodCalculator } from "./chmod-calculator";
+import { csvToJson } from "./csv-to-json";
+import { loremIpsumGenerator } from "./lorem-ipsum-generator";
+import { markdownEditor } from "./markdown-editor";
+import { htmlEntityEncoder } from "./html-entity-encoder";
+import { slugGenerator } from "./slug-generator";
 
 export const tools: ToolDefinition[] = [
   // developer
@@ -30,11 +43,18 @@ export const tools: ToolDefinition[] = [
   uuidGenerator,
   hashGenerator,
   regexTester,
+  cronExpressionGenerator,
+  chmodCalculator,
+  csvToJson,
+  markdownEditor,
+  htmlEntityEncoder,
   // text
   wordCounter,
   textDiff,
   caseConverter,
   passwordGenerator,
+  loremIpsumGenerator,
+  slugGenerator,
   // converters
   colorConverter,
   unitConverter,
@@ -46,6 +66,12 @@ export const tools: ToolDefinition[] = [
   loanCalculator,
   compoundInterestCalculator,
   percentageCalculator,
+  mortgageCalculator,
+  emiCalculator,
+  creditCardPayoffCalculator,
+  salaryToHourlyCalculator,
+  tipCalculator,
+  discountCalculator,
 ];
 
 const bySlug = new Map(tools.map((t) => [t.slug, t]));

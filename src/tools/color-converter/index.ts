@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const colorConverter: ToolDefinition = {
   slug: "color-converter",
@@ -24,7 +23,6 @@ export const colorConverter: ToolDefinition = {
   ],
   related: ["unit-converter", "case-converter", "percentage-calculator"],
   icon: "rgb",
-  component: Tool,
   content: {
     en: {
       title: "HEX to RGB, RGB to HEX & HSL Color Converter",

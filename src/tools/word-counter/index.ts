@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const wordCounter: ToolDefinition = {
   slug: "word-counter",
@@ -25,7 +24,6 @@ export const wordCounter: ToolDefinition = {
   related: ["case-converter", "password-generator"],
   icon: "Aa",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Word Counter & Character Counter with Reading Time",

@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const jsonFormatter: ToolDefinition = {
   slug: "json-formatter",
@@ -24,7 +23,6 @@ export const jsonFormatter: ToolDefinition = {
   related: ["base64", "url-encoder", "jwt-decoder"],
   icon: "{ }",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "JSON Formatter, Validator & Beautifier Online",

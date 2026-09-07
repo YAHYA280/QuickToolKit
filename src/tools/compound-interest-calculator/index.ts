@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const compoundInterestCalculator: ToolDefinition = {
   slug: "compound-interest-calculator",
@@ -24,7 +23,6 @@ export const compoundInterestCalculator: ToolDefinition = {
   ],
   related: ["loan-calculator", "percentage-calculator"],
   icon: "%^",
-  component: Tool,
   content: {
     en: {
       title: "Compound Interest Calculator with Monthly Deposits",

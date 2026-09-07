@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const hashGenerator: ToolDefinition = {
   slug: "hash-generator",
@@ -24,7 +23,6 @@ export const hashGenerator: ToolDefinition = {
   ],
   related: ["base64", "jwt-decoder", "uuid-generator"],
   icon: "#",
-  component: Tool,
   content: {
     en: {
       title: "MD5 & SHA256 Hash Generator Online: SHA-1, SHA-512",

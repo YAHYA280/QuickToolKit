@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const percentageCalculator: ToolDefinition = {
   slug: "percentage-calculator",
@@ -25,7 +24,6 @@ export const percentageCalculator: ToolDefinition = {
   related: ["compound-interest-calculator", "loan-calculator", "unit-converter"],
   icon: "%",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Percentage Calculator: Percent Change & Percent Of",

@@ -1,5 +1,3 @@
-import type { ComponentType } from "react";
-
 export type CategorySlug = "developer" | "text" | "finance" | "converters";
 
 export interface Category {
@@ -40,7 +38,6 @@ export interface ToolDefinition {
   icon: string;
   /** Marks tools to surface on the home page */
   popular?: boolean;
-  component: ComponentType;
   /** Content keyed by locale; falls back to "en" */
   content: Record<string, ToolContent>;
 }

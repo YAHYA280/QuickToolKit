@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const passwordGenerator: ToolDefinition = {
   slug: "password-generator",
@@ -25,7 +24,6 @@ export const passwordGenerator: ToolDefinition = {
   related: ["uuid-generator", "hash-generator", "case-converter"],
   icon: "***",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Strong Random Password Generator & Passphrases",

@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const uuidGenerator: ToolDefinition = {
   slug: "uuid-generator",
@@ -23,7 +22,6 @@ export const uuidGenerator: ToolDefinition = {
   ],
   related: ["password-generator", "hash-generator", "base64"],
   icon: "id",
-  component: Tool,
   content: {
     en: {
       title: "UUID Generator Online: Random v4 UUIDs & GUIDs",

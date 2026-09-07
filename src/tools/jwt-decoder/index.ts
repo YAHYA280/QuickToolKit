@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const jwtDecoder: ToolDefinition = {
   slug: "jwt-decoder",
@@ -25,7 +24,6 @@ export const jwtDecoder: ToolDefinition = {
   related: ["base64", "json-formatter", "hash-generator"],
   icon: "jwt",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "JWT Decoder Online: Decode JSON Web Token Claims",

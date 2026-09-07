@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const urlEncoder: ToolDefinition = {
   slug: "url-encoder",
@@ -24,7 +23,6 @@ export const urlEncoder: ToolDefinition = {
   ],
   related: ["base64", "json-formatter", "jwt-decoder"],
   icon: "%",
-  component: Tool,
   content: {
     en: {
       title: "URL Encoder & Decoder Online: Percent-Encoding",

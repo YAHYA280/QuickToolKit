@@ -10,6 +10,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { RelatedTools } from "@/components/tools/RelatedTools";
 import { ToolArticle } from "@/components/tools/ToolArticle";
 import { ToolFrame } from "@/components/tools/ToolFrame";
+import { ToolRenderer } from "@/components/tools/ToolRenderer";
 import { CopyLinkButton } from "@/components/tools/CopyLinkButton";
 import { Badge } from "@/components/ui/badge";
 import { absoluteUrl, pageMetadata } from "@/lib/seo";
@@ -62,7 +63,6 @@ export default async function ToolPage({ params }: { params: Params }) {
   const siblings = getToolsByCategory(tool.category).filter((s) => s.slug !== tool.slug);
   const url = absoluteUrl(locale, `/tools/${tool.slug}`);
   const dates = getToolDates(tool.slug);
-  const Tool = tool.component;
   const linkTargets = tools
     .filter((x) => x.slug !== tool.slug)
     .map((x) => ({ href: `/tools/${x.slug}`, phrases: [x.name, ...(toolAliases[x.slug] ?? []), ...x.keywords.filter((k) => k.length >= 5)] }));
@@ -162,7 +162,7 @@ export default async function ToolPage({ params }: { params: Params }) {
           <AdSlot placement="top" className="mt-8" />
 
           <ToolFrame slug={tool.slug} statusHint={t("privacyNote")} className="mt-6">
-            <Tool />
+            <ToolRenderer slug={tool.slug} />
           </ToolFrame>
 
           <AdSlot placement="inArticle" className="mt-10" />

@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const unitConverter: ToolDefinition = {
   slug: "unit-converter",
@@ -25,7 +24,6 @@ export const unitConverter: ToolDefinition = {
   related: ["color-converter", "percentage-calculator", "loan-calculator"],
   icon: "cm",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Unit Converter Online: Length, Weight, Temperature",

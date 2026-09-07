@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const regexTester: ToolDefinition = {
   slug: "regex-tester",
@@ -25,7 +24,6 @@ export const regexTester: ToolDefinition = {
   related: ["json-formatter", "case-converter", "word-counter"],
   icon: ".*",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Regex Tester Online: Live JavaScript Regex Matches",

@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const caseConverter: ToolDefinition = {
   slug: "case-converter",
@@ -24,7 +23,6 @@ export const caseConverter: ToolDefinition = {
   ],
   related: ["word-counter", "url-encoder", "regex-tester"],
   icon: "aA",
-  component: Tool,
   content: {
     en: {
       title: "Case Converter: Uppercase to Lowercase, Title Case",

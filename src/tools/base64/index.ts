@@ -1,5 +1,4 @@
 import type { ToolDefinition } from "../types";
-import Tool from "./Tool";
 
 export const base64Tool: ToolDefinition = {
   slug: "base64",
@@ -24,7 +23,6 @@ export const base64Tool: ToolDefinition = {
   related: ["url-encoder", "jwt-decoder", "hash-generator"],
   icon: "b64",
   popular: true,
-  component: Tool,
   content: {
     en: {
       title: "Base64 Decode & Encode Online: UTF-8, URL-Safe",

@@ -16,7 +16,7 @@ pnpm build && pnpm start     # production check
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical origin, no trailing slash. Used in canonical/hreflang, sitemap, JSON-LD. |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Shown on About/Contact/Privacy pages. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Fallback email shown on the Contact page (forwarded via ImprovMX). |
 | `NEXT_PUBLIC_ADSENSE_CLIENT` | `ca-pub-…`. Empty = no ad scripts loaded (dev, preview, pre-approval). |
 | `NEXT_PUBLIC_ADSENSE_SLOT_*` | Optional manual ad unit ids for top / in-article / sidebar. Auto Ads work without them. |
 
@@ -30,6 +30,12 @@ pnpm build && pnpm start     # production check
 - `ToolFrame` wraps every tool with window chrome (`~/tools/slug`, live "runs locally" status with tooltip). `CopyLinkButton` in the tool header.
 - Utilities: `.label-mono` (small uppercase mono label), `.bg-grid` (dot texture), `.stagger` (card reveal), `.code-surface` (thin scrollbars), `.syn-*` (syntax colors), `animate-flash` / `animate-pop` (result feedback). `<details>` open/close is animated via `::details-content`. Route changes fade in via `app/[locale]/template.tsx`.
 - Ctrl/Cmd+K opens the command palette (`CommandMenu`).
+
+## Contact form + admin inbox
+
+- `/contact` stores messages in PostgreSQL (`messages` table, created automatically on first use). Honeypot, timing check and a per-IP rate limit (3 per 15 min, IP stored hashed).
+- `/admin` password login (`ADMIN_PASSWORD`), signed cookie (`ADMIN_SECRET`), 7-day session. `/admin/messages` lists messages with unread filter, mark read, delete, and a reply link that opens your mail client. Admin pages are `noindex` and disallowed in robots.txt.
+- Env: `DATABASE_URL`, `ADMIN_PASSWORD`, `ADMIN_SECRET`. Set them in Vercel too.
 
 ## Add a tool
 

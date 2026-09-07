@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
+import { Link } from "@/i18n/navigation";
 
 export async function generateMetadata({
   params,
@@ -88,9 +89,16 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         This policy may be updated. The date at the top reflects the latest revision.
       </p>
 
+      <h2>Contact form</h2>
+      <p>
+        If you write to us through the contact form, we store the name, email address and message you
+        submit, plus a hashed form of your IP address used only to limit spam. We use this information
+        to reply to you and for nothing else. Ask us to delete it at any time.
+      </p>
+
       <h2>Contact</h2>
       <p>
-        Privacy questions: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+        Privacy questions: use the <Link href="/contact">contact form</Link>.
       </p>
     </div>
   );

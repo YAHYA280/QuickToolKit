@@ -14,6 +14,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  serverExternalPackages: ["postgres"],
   reactStrictMode: true,
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {

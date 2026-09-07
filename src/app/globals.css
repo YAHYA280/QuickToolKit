@@ -262,6 +262,13 @@
   a {
     text-underline-offset: 3px;
   }
+  /* keyboard focus: thick blue outline on anything that is not a shadcn control */
+  a:focus-visible,
+  summary:focus-visible,
+  [tabindex="0"]:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 /* ------------------------------------------------------------------

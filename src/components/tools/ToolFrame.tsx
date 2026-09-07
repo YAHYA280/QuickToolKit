@@ -21,13 +21,16 @@ export function ToolFrame({ slug, statusLabel = "runs locally", statusHint, acti
           {actions}
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="flex cursor-default items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em]" tabIndex={0}>
+              <button
+                type="button"
+                className="flex cursor-help items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] outline-offset-2 focus-visible:outline-2 focus-visible:outline-primary"
+              >
                 <span className="relative flex size-2">
                   <span className="absolute inline-flex size-full animate-ping bg-success/60 motion-reduce:hidden" />
                   <span className="relative inline-flex size-2 bg-success" />
                 </span>
                 {statusLabel}
-              </span>
+              </button>
             </TooltipTrigger>
             {statusHint && <TooltipContent side="bottom">{statusHint}</TooltipContent>}
           </Tooltip>

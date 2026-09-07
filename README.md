@@ -1,4 +1,4 @@
-# ToolKit – free online tools site
+# TabUtils – free online tools site (tabutils.com)
 
 Next.js 16 (App Router) + TypeScript + Tailwind 4 + shadcn/ui + next-intl. Every tool runs client-side; all pages are statically generated. Built to be monetized with Google AdSense.
 

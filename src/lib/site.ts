@@ -3,13 +3,13 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_SITE_URL) 
 }
 
 export const siteConfig = {
-  name: "ToolKit",
+  name: "TabUtils",
   tagline: "Free online tools, calculators and converters",
   description:
     "Fast, free, privacy-friendly online tools. Format JSON, decode JWTs, generate passwords, calculate loans and more. Everything runs in your browser.",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, ""),
-  author: "ToolKit",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
+  author: "TabUtils",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@tabutils.com",
   twitter: "",
 };
 

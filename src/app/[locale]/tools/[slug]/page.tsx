@@ -19,6 +19,7 @@ import { getCategory } from "@/tools/categories";
 import { getToolDates } from "@/tools/dates";
 import { toolAliases } from "@/tools/aliases";
 import { PopularConversions } from "@/components/convert/PopularConversions";
+import { PopularTimeZones } from "@/components/time/PopularTimeZones";
 import { getRelatedTools, getTool, getToolContent, getToolsByCategory, tools } from "@/tools/registry";
 
 type Params = Promise<{ locale: string; slug: string }>;
@@ -171,6 +172,7 @@ export default async function ToolPage({ params }: { params: Params }) {
           <ToolArticle name={tool.name} content={content} links={linkTargets} />
 
           {tool.slug === "unit-converter" && <PopularConversions />}
+          {tool.slug === "unix-timestamp-converter" && <PopularTimeZones />}
 
           <RelatedTools tools={related} />
         </div>

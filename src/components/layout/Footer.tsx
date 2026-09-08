@@ -35,6 +35,16 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/convert" className={linkClass}>
+                Unit conversions
+              </Link>
+            </li>
+            <li>
+              <Link href="/time" className={linkClass}>
+                Time zones
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

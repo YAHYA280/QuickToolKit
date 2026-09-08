@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site";
 import { tools, getToolsByCategory } from "@/tools/registry";
 import { categories } from "@/tools/categories";
+import { pairSlug, pairs } from "@/convert/data";
 import { getToolDates, latestDate, siteLaunched } from "@/tools/dates";
 
 function localizedUrl(locale: string, path: string): string {
@@ -59,6 +60,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: page.changeFrequency,
         priority: page.priority,
       });
+    }
+    entries.push({ url: localizedUrl(locale, "/convert"), lastModified: new Date(siteLaunched), changeFrequency: "monthly", priority: 0.7 });
+    for (const pair of pairs) {
+      entries.push({ url: localizedUrl(locale, `/convert/${pairSlug(pair)}`), lastModified: new Date(siteLaunched), changeFrequency: "yearly", priority: 0.6 });
     }
   }
   return entries;

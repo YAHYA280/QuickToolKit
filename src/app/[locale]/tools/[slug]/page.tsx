@@ -18,6 +18,7 @@ import { siteConfig } from "@/lib/site";
 import { getCategory } from "@/tools/categories";
 import { getToolDates } from "@/tools/dates";
 import { toolAliases } from "@/tools/aliases";
+import { PopularConversions } from "@/components/convert/PopularConversions";
 import { getRelatedTools, getTool, getToolContent, getToolsByCategory, tools } from "@/tools/registry";
 
 type Params = Promise<{ locale: string; slug: string }>;
@@ -168,6 +169,8 @@ export default async function ToolPage({ params }: { params: Params }) {
           <AdSlot placement="inArticle" className="mt-10" />
 
           <ToolArticle name={tool.name} content={content} links={linkTargets} />
+
+          {tool.slug === "unit-converter" && <PopularConversions />}
 
           <RelatedTools tools={related} />
         </div>

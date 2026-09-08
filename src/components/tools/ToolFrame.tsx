@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 
 interface Props {
   slug: string;
+  /** Path shown in the title bar; defaults to tools/<slug> */
+  path?: string;
   statusLabel?: string;
   statusHint?: string;
   actions?: ReactNode;
@@ -12,11 +14,11 @@ interface Props {
 }
 
 /** Window-like chrome around every tool: black title bar with the path on the left, live status on the right. */
-export function ToolFrame({ slug, statusLabel = "runs locally", statusHint, actions, children, className }: Props) {
+export function ToolFrame({ slug, path, statusLabel = "runs locally", statusHint, actions, children, className }: Props) {
   return (
     <section aria-label={slug} className={cn("animate-rise brut overflow-hidden", className)}>
       <div className="flex h-10 items-center justify-between gap-3 ink-block px-4">
-        <span className="truncate font-mono text-[11px] font-bold uppercase tracking-[0.1em]">~/tools/{slug}</span>
+        <span className="truncate font-mono text-[11px] font-bold uppercase tracking-[0.1em]">~/{path ?? `tools/${slug}`}</span>
         <div className="flex items-center gap-2">
           {actions}
           <Tooltip>

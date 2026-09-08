@@ -10,6 +10,7 @@ import { absoluteUrl, pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import { categories, getCategory, isCategorySlug } from "@/tools/categories";
 import { getToolsByCategory, tools } from "@/tools/registry";
+import { PopularConversions } from "@/components/convert/PopularConversions";
 
 type Params = Promise<{ locale: string; category: string }>;
 
@@ -106,6 +107,8 @@ export default async function CategoryPage({ params }: { params: Params }) {
           />
         ))}
       </div>
+
+      {slug === "converters" && <PopularConversions />}
 
       <section aria-labelledby="about-category" className="prose-tool mt-16 max-w-3xl">
         <h2 id="about-category" className="scroll-mt-20">
